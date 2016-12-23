@@ -1,0 +1,31 @@
+{
+  "name": "choice-maker",
+  "version": "0.0.1",
+  "description": "Configuration loaded for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mintyPT/choice-maker.git"
+  },
+  "author": "Mauro Santos <“mauro.goncalo@gmail.com”> (http://maurogoncalo.com)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.3.2"
+  },
+  "bugs": {
+    "url": "https://github.com/mintyPT/choice-maker/issues"
+  },
+  "homepage": "https://github.com/mintyPT/choice-maker#readme",
+  "keywords": [
+    "configuration loader",
+    "config",
+    "loading",
+    "loader"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.3"
+  }
+}
