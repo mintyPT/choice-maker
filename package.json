@@ -1,6 +1,6 @@
 {
   "name": "choice-maker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Configuration loaded for nodejs",
   "main": "index.js",
   "scripts": {

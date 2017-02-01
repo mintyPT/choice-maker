@@ -3,6 +3,8 @@ var chalk  = require('chalk');
 
 const loadConfig = (config) => {
 
+    debug = config.debug || false;
+
     const env          = process.env.NODE_ENV; // dev - production - test
 
     if (!config.path) {
@@ -13,21 +15,29 @@ const loadConfig = (config) => {
 
     var config = require(path.join(configPath, 'production'));
 
-    console.log(chalk.yellow(`[choice-maker] ENV: ${env}`));
-    console.log(chalk.green(`[choice-maker] [ok] File production.js loaded`))
+    if(debug) {
+        console.log(chalk.yellow(`[choice-maker] ENV: ${env}`));
+        console.log(chalk.green(`[choice-maker] [ok] File production.js loaded`))
+    }
 
     if (env == 'development') {
         var config_dev = require(path.join(configPath, 'dev'));
         var config     = Object.assign({}, config, config_dev);
-        console.log(chalk.green(`[choice-maker] [ok] File dev.js loaded`));
+        if(debug) {
+            console.log(chalk.green(`[choice-maker] [ok] File dev.js loaded`));
+        }
     }
 
     try {
         var config_maker = require(path.join(configPath, 'god'));
         var config       = Object.assign({}, config, config_maker);
-        console.log(chalk.green(`[choice-maker] [ok] File ${'god'}.js loaded`))
+        if(debug) {
+            console.log(chalk.green(`[choice-maker] [ok] File ${'god'}.js loaded`))
+        }
     } catch (e) {
-        console.log(chalk.red(`[choice-maker] [error] File ${'god'}.js not found`))
+        if(debug) {
+            console.log(chalk.red(`[choice-maker] [error] File ${'god'}.js not found`))
+        }
     }
 
     config = Object.assign({}, config, {env, isDev: env == 'development', isProduction: env == 'production'});
